@@ -1,3 +1,5 @@
+//Top level program which involves call to the prim and kruskal algorithm in order to
+//find the minimum spanning tree
 
 #include<iostream>
 #include<conio.h>
