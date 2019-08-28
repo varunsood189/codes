@@ -1,2 +1,2 @@
 # codes
-Some of the codes i have made during my masters
+Some of the codes i have wrote during my masters
