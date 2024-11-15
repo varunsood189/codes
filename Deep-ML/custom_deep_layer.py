@@ -57,10 +57,11 @@ class Dense(Layer):
 	        self.w0= self.w0_opt.update(self.w0,grad_w0)
 	    accum_grad = accum_grad.dot(W.T)
 	    return accum_grad
-
-	def number_of_parameters():
+	def parameters(self):
+		return 	self.input_shape[0]*self.n_units +len(self.w0[0])
+	        
+	def output_shape(self):
 	    return (self.n_units,)
-
     
     # Initialize a Dense layer with 3 neurons and input shape (2,)
 dense_layer = Dense(n_units=3, input_shape=(2,))
@@ -84,10 +85,4 @@ print("Forward pass output:", output)
 accum_grad = np.array([[0.1, 0.2, 0.3]])
 back_output = dense_layer.backward_pass(accum_grad)
 print("Backward pass output:", back_output)
-
-# Expected Output:
-
-# Forward pass output: [[-0.00655782  0.01429615  0.00905812]]
-# Backward pass output: [[ 0.00129588  0.00953634]]
-
-
+print(dense_layer.parameters())
